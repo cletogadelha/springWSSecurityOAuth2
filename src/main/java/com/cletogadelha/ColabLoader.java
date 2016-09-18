@@ -30,7 +30,7 @@ public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
 		
 		Set<Competency> listaComp = new HashSet<>();
 		Competency comp = new Competency();
-		comp.setDescricao("MEAN");
+		comp.setDescription("MEAN");
 		comp.setCollaborator(colab);
 		listaComp.add(comp);
 		
@@ -45,6 +45,5 @@ public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
 		colab.setCompetencies(listaComp);
 		
 		colabRepository.save(colab);
-    	
     }
 }

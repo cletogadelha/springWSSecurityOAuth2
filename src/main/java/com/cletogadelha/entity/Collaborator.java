@@ -16,27 +16,26 @@ public class Collaborator {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String localTrabalho;
-	private String nome;
-	private String biografia;
-	private String profissao;
+	private String workLocation;
+	private String name;
+	private String biography;
+	private String profession;
 	
 	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Competency> competencies;
 	
-	private String endereco;
+	private String address;
 	
 	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Set<Contact> contactList;
 	
 	public Collaborator(){
-		
 	}
 	
-	public Collaborator(String nome, String profissao, String localTrabalho){
-		this.nome = nome;
-		this.profissao = profissao;
-		this.localTrabalho = localTrabalho;
+	public Collaborator(String name, String profession, String workLocation){
+		this.name = name;
+		this.profession = profession;
+		this.workLocation = workLocation;
 	}
 	
 	public int getId() {
@@ -47,44 +46,44 @@ public class Collaborator {
 		this.id = id;
 	}
 
-	public String getEndereco() {
-		return endereco;
+	public String getWorkLocation() {
+		return workLocation;
 	}
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setWorkLocation(String workLocation) {
+		this.workLocation = workLocation;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLocalTrabalho() {
-		return localTrabalho;
+	public String getBiography() {
+		return biography;
 	}
 
-	public void setLocalTrabalho(String localTrabalho) {
-		this.localTrabalho = localTrabalho;
+	public void setBiography(String biography) {
+		this.biography = biography;
 	}
 
-	public String getBiografia() {
-		return biografia;
+	public String getProfession() {
+		return profession;
 	}
 
-	public void setBiografia(String biografia) {
-		this.biografia = biografia;
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 
-	public String getProfissao() {
-		return profissao;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Set<Competency> getCompetencies() {

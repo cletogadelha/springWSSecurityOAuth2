@@ -14,19 +14,13 @@ public class Competency {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
-	private String descricao;
+	private String description;
 	
 	@ManyToOne
 	@JsonBackReference
 	@JoinColumn(name="collaborator_id")
     private Collaborator collaborator;	
 	
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 	public String getId() {
 		return id;
 	}
@@ -38,6 +32,12 @@ public class Competency {
 	}
 	public void setCollaborator(Collaborator collaborator) {
 		this.collaborator = collaborator;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

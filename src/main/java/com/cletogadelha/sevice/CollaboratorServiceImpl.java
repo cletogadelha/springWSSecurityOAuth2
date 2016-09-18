@@ -18,17 +18,18 @@ public class CollaboratorServiceImpl implements CollaboratorService {
 		this.repository = repository;
 	}
 	
-	public Collaborator getDetalhesCollaborator(Integer id){
+	@Override
+	public Collaborator getDetails(Integer id){
 		return (Collaborator) repository.findOne(id);
 	}
 
 	@Override
-	public List<Collaborator> getListaCollaborators() {
+	public List<Collaborator> getCollaboratorsList() {
 		return (List<Collaborator>)repository.findAll();
 	}
 
 	@Override
-	public Collaborator salvarCollaborator(Collaborator colab) {
+	public Collaborator saveCollaborator(Collaborator colab) {
 		return repository.save(colab);
 	}
 

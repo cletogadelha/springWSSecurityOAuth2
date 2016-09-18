@@ -25,22 +25,22 @@ public class CollaboratorController {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public Collaborator getDetalhesColaborador(@PathVariable("id") Integer id) {
-		return colabService.getDetalhesCollaborator(id);
+		return colabService.getDetails(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Collaborator> getListaColaboradores() {
-		return colabService.getListaCollaborators();
+		return colabService.getCollaboratorsList();
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public Collaborator salvarColaborador(@RequestBody @Valid Collaborator colab){
-		return colabService.salvarCollaborator(colab);
+		return colabService.saveCollaborator(colab);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public Collaborator update(@PathVariable("id") Integer id, @RequestBody @Valid Collaborator colab) {
-		return colabService.salvarCollaborator(colab);
+		return colabService.saveCollaborator(colab);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)

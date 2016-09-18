@@ -35,7 +35,8 @@ public class CollaboratorController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public Collaborator salvarColaborador(@RequestBody @Valid Collaborator colab){
-		return collabService.saveCollaborator(colab);
+		Collaborator collab = collabService.saveCollaborator(colab);
+		return collab;
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)

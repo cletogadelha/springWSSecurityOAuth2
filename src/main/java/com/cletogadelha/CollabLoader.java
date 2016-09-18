@@ -14,7 +14,7 @@ import com.cletogadelha.entity.Contact;
 import com.cletogadelha.repository.CollaboratorRepository;
 
 @Component
-public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
+public class CollabLoader implements ApplicationListener<ContextRefreshedEvent> {
  
     private CollaboratorRepository colabRepository;
  
@@ -26,24 +26,22 @@ public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 		
-		Collaborator colab = new Collaborator("Jack Bauer", "Software Developer", "Software Factory");
+		Collaborator collab = new Collaborator("Jack Bauer", "Software Developer", "Software Factory");
 		
-		Set<Competency> listaComp = new HashSet<>();
+		Set<Competency> compList = new HashSet<>();
 		Competency comp = new Competency();
 		comp.setDescription("MEAN");
-		comp.setCollaborator(colab);
-		listaComp.add(comp);
+		compList.add(comp);
 		
-		Set<Contact> listaCont = new HashSet<>();
+		Set<Contact> contList = new HashSet<>();
 		Contact contato = new Contact();
 		contato.setType("Facebook");
 		contato.setContact("facebook.com.br/jackBauer");
-		contato.setCollaborator(colab);
-		listaCont.add(contato);
+		contList.add(contato);
 		
-		colab.setContactList(listaCont);
-		colab.setCompetencies(listaComp);
+		collab.setContactList(contList);
+		collab.setCompetencies(compList);
 		
-		colabRepository.save(colab);
+		colabRepository.save(collab);
     }
 }

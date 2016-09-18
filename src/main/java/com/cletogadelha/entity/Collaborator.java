@@ -6,27 +6,28 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Collaborator {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	private int id;
 	private String workLocation;
 	private String name;
 	private String biography;
 	private String profession;
-	
-	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private Set<Competency> competencies;
-	
 	private String address;
 	
-	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="competency_id")
+	private Set<Competency> competencies;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="contact_id")
 	private Set<Contact> contactList;
 	
 	public Collaborator(){
@@ -101,6 +102,6 @@ public class Collaborator {
 	public void setContactList(Set<Contact> contactList) {
 		this.contactList = contactList;
 	}
-
+	
 	
 }

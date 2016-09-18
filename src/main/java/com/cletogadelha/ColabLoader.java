@@ -26,7 +26,7 @@ public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
 		
-		Collaborator colab = new Collaborator("Jack Bauer", "Desenvolvedor de Software", "Fábrica de Software");
+		Collaborator colab = new Collaborator("Jack Bauer", "Software Developer", "Software Factory");
 		
 		Set<Competency> listaComp = new HashSet<>();
 		Competency comp = new Competency();

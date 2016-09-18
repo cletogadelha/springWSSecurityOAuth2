@@ -2,7 +2,7 @@ package com.cletogadelha.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.cletogadelha.entity.Colaborador;
+import com.cletogadelha.entity.Collaborator;
 
-public interface ColaboradorRepository extends CrudRepository<Colaborador, Integer> {
+public interface ColaboradorRepository extends CrudRepository<Collaborator, Integer> {
 }

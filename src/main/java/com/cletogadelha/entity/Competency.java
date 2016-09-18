@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class Competencia {
+public class Competency {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String id;
@@ -17,7 +18,8 @@ public class Competencia {
 	
 	@ManyToOne
 	@JsonBackReference
-    private Colaborador colaborador;	
+	@JoinColumn(name="collaborator_id")
+    private Collaborator collaborator;	
 	
 	public String getDescricao() {
 		return descricao;
@@ -31,11 +33,11 @@ public class Competencia {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public Colaborador getColaborador() {
-		return colaborador;
+	public Collaborator getCollaborator() {
+		return collaborator;
 	}
-	public void setColaborador(Colaborador colaborador) {
-		this.colaborador = colaborador;
+	public void setCollaborator(Collaborator collaborator) {
+		this.collaborator = collaborator;
 	}
 
 }

@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/springAngular-1.0.0.jar
+web: java -Dserver.port=$PORT -jar  target/SpringAngularSecurity-1.0.0.jar

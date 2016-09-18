@@ -1,6 +1,6 @@
 package com.cletogadelha.entity;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -8,14 +8,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
-public class Colaborador {
+public class Collaborator {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,26 +21,19 @@ public class Colaborador {
 	private String biografia;
 	private String profissao;
 	
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//    @JoinColumn(name="colaborador_id")
-//	@JsonManagedReference
-//	private List<Competencia> competencias;
+	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private Set<Competency> competencies;
 	
 	private String endereco;
 	
-//	@Lob
-//	private  byte[]  imagem;
+	@OneToMany(mappedBy="collaborator", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private Set<Contact> contactList;
 	
-//	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-//    @JoinColumn(name="colaborador_id")
-//	@JsonManagedReference
-//	private List<Contato> listaContatos;
-	
-	public Colaborador(){
+	public Collaborator(){
 		
 	}
 	
-	public Colaborador(String nome, String profissao, String localTrabalho){
+	public Collaborator(String nome, String profissao, String localTrabalho){
 		this.nome = nome;
 		this.profissao = profissao;
 		this.localTrabalho = localTrabalho;
@@ -98,28 +87,21 @@ public class Colaborador {
 		this.profissao = profissao;
 	}
 
-//	public List<Contato> getListaContatos() {
-//		return listaContatos;
-//	}
-//
-//	public void setListaContatos(List<Contato> listaContatos) {
-//		this.listaContatos = listaContatos;
-//	}
+	public Set<Competency> getCompetencies() {
+		return competencies;
+	}
 
-//	public byte[] getImagem() {
-//		return imagem;
-//	}
-//
-//	public void setImagem(byte[] imagem) {
-//		this.imagem = imagem;
-//	}
+	public void setCompetencies(Set<Competency> competencies) {
+		this.competencies = competencies;
+	}
 
-//	public List<Competencia> getCompetencias() {
-//		return competencias;
-//	}
-//
-//	public void setCompetencias(List<Competencia> competencias) {
-//		this.competencias = competencias;
-//	}
+	public Set<Contact> getContactList() {
+		return contactList;
+	}
 
+	public void setContactList(Set<Contact> contactList) {
+		this.contactList = contactList;
+	}
+
+	
 }

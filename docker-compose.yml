@@ -1,6 +1,6 @@
 web:
   build: .
-  command: 'bash -c ''java -Dserver.port=$PORT -jar  target/springAngular-1.0.0.jar'''
+  command: 'bash -c ''java -Dserver.port=$PORT -jar  target/SpringAngularSecurity-1.0.0.jar'''
   working_dir: /app/user
   environment:
     PORT: 8080

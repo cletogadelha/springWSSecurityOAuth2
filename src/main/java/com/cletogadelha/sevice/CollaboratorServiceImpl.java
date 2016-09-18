@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cletogadelha.entity.Collaborator;
-import com.cletogadelha.repository.ColaboradorRepository;
+import com.cletogadelha.repository.CollaboratorRepository;
 
 @Component
 public class CollaboratorServiceImpl implements CollaboratorService {
 	
-	private final ColaboradorRepository repository;
+	private final CollaboratorRepository repository;
 	
 	@Autowired
-	public CollaboratorServiceImpl(ColaboradorRepository repository){
+	public CollaboratorServiceImpl(CollaboratorRepository repository){
 		this.repository = repository;
 	}
 	

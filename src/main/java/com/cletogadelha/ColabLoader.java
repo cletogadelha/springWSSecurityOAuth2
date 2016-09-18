@@ -11,15 +11,15 @@ import org.springframework.stereotype.Component;
 import com.cletogadelha.entity.Collaborator;
 import com.cletogadelha.entity.Competency;
 import com.cletogadelha.entity.Contact;
-import com.cletogadelha.repository.ColaboradorRepository;
+import com.cletogadelha.repository.CollaboratorRepository;
 
 @Component
 public class ColabLoader implements ApplicationListener<ContextRefreshedEvent> {
  
-    private ColaboradorRepository colabRepository;
+    private CollaboratorRepository colabRepository;
  
     @Autowired
-    public void setProductRepository(ColaboradorRepository colabRepository) {
+    public void setProductRepository(CollaboratorRepository colabRepository) {
         this.colabRepository = colabRepository;
     }
  

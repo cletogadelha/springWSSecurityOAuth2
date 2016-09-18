@@ -17,35 +17,35 @@ import com.cletogadelha.entity.Collaborator;
 import com.cletogadelha.sevice.CollaboratorService;
 
 @RestController
-@RequestMapping("/rest/colaborador")
+@RequestMapping("/rest/collaborator")
 public class CollaboratorController {
 	
 	@Autowired
-	private CollaboratorService colabService;
+	private CollaboratorService collabService;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public Collaborator getDetalhesColaborador(@PathVariable("id") Integer id) {
-		return colabService.getDetails(id);
+		return collabService.getDetails(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
 	public List<Collaborator> getListaColaboradores() {
-		return colabService.getCollaboratorsList();
+		return collabService.getCollaboratorsList();
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public Collaborator salvarColaborador(@RequestBody @Valid Collaborator colab){
-		return colabService.saveCollaborator(colab);
+		return collabService.saveCollaborator(colab);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
 	public Collaborator update(@PathVariable("id") Integer id, @RequestBody @Valid Collaborator colab) {
-		return colabService.saveCollaborator(colab);
+		return collabService.saveCollaborator(colab);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Boolean> deletarColaborador(@PathVariable("id") Integer id){
-		colabService.removeCollaborator(id);
+		collabService.removeCollaborator(id);
 		return new ResponseEntity<Boolean>(Boolean.TRUE, HttpStatus.OK);
 	}
 }
